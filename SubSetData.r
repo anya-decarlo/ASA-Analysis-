@@ -26,10 +26,6 @@ lf <- dat[, ..desired_columns]
 lf$Start_Date <- as.IDate(lf$Start_Date)
 lf$Completion_Date <- as.IDate(lf$Completion_Date)
 
-
-str(dat)
-
-
 # Get Unque Values from Age 
 print(unique(lf$Age))
 print(unique(lf$Study_Status))
@@ -38,6 +34,8 @@ print(unique(lf$Study_Status))
 excluded_statuses <- c("TERMINATED" , "WITHDRAWN", "UNKNOWN", "SUSPENDED")
 # Subset the data to only include studies that are active 
 mf <- lf[!(Study_Status %in% excluded_statuses)]
+
+
 # Study Enrollment Numbers across each Study_Type  
 # Summarize enrollment numbers by Study_Type
 enrollment_summary <- mf[, .(
