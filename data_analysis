@@ -1,0 +1,8 @@
+source("~/ASA-Analysis/preprocess.R")
+
+
+
+
+
+
+read_data("/Users/anyadecarlo/ctg_studies.csv")
