@@ -133,3 +133,26 @@ trigram_counts <- trigrams %>%
 
 # View the result
 print(trigram_counts)
+
+
+##############################
+Conditions
+#############################
+bigrams <- mf  %>%
+  select(Conditions) %>%
+  unnest_tokens(bigram, Conditions, token = "ngrams", n = 2)
+bigram_counts <- bigrams %>%
+  count(bigram, sort = TRUE) %>%
+  slice_max(n, n = 20)
+
+print(bigram_counts)
+
+trigrams <- jf %>%
+  select(Conditions) %>%
+  unnest_tokens(trigram, Conditions, token = "ngrams", n = 5)
+trigram_counts <- trigrams %>%
+  count(trigram, sort = TRUE) %>%
+  slice_max(n, n = 20)
+
+# View the result
+print(trigram_counts)
