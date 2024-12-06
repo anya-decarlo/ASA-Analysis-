@@ -168,3 +168,34 @@ yearly_trend_plot <- ggplot(mf_yearly, aes(x = Start_Year, y = Study_Count)) +
 
 # Save the plot as PNG
 ggsave("yearly_study_trends.png", plot = yearly_trend_plot, width = 10, height = 6, dpi = 300, bg = "white")
+
+
+
+library(ggplot2)
+library(dplyr)
+
+# Extract year from Start_Date and aggregate data, filter for years up to 2024
+mf_yearly <- mf %>%
+  mutate(Start_Year = as.numeric(format(as.Date(Start_Date), "%Y"))) %>%  # Extract year as numeric
+  filter(Start_Year <= 2024) %>%  # Filter years up to 2024
+  group_by(Start_Year) %>%
+  summarise(Study_Count = n(), .groups = "drop")  # Aggregate by year
+
+# Create the time series plot
+yearly_trend_plot <- ggplot(mf_yearly, aes(x = Start_Year, y = Study_Count)) +
+  geom_line(color = "steelblue", size = 1.2) +  # Line to show trends
+  geom_point(color = "darkblue", size = 2, alpha = 0.8) +  # Points for each year
+  labs(
+    title = "Yearly Trends in Clinical Trial Start Dates (Up to 2024)",
+    x = "Year",
+    y = "Number of Studies"
+  ) +
+  theme_classic(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(size = 12)
+  )
+
+# Save the plot as PNG
+ggsave("yearly_study_trends.png", plot = yearly_trend_plot, width = 10, height = 6, dpi = 300, bg = "white")

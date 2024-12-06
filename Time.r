@@ -95,11 +95,13 @@ stats_table <- data.frame(
 )
 
 # Format the table
+# Format the table
 formatted_table <- gt(stats_table) %>%
+  tab_header(
+    title = "Proportions of AI Studies Before and After 2015"
+  ) %>%
   tab_style(
-    style = list(
-      cell_text(weight = "bold")
-    ),
+    style = cell_text(weight = "bold"),
     locations = cells_column_labels()
   ) %>%
   tab_options(
@@ -164,10 +166,11 @@ stats_table <- data.frame(
 
 # Format the table
 formatted_table <- gt(stats_table) %>%
+  tab_header(
+    title = "Chi-Square Test: AI Study Distribution Before vs. After 2015"
+  ) %>%
   tab_style(
-    style = list(
-      cell_text(weight = "bold")
-    ),
+    style = cell_text(weight = "bold"),
     locations = cells_column_labels()
   ) %>%
   tab_options(

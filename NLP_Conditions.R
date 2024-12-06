@@ -73,7 +73,7 @@ bigram_plot <- ggplot(bigram_counts_clean, aes(x = reorder(bigram, n), y = n)) +
   geom_bar(stat = "identity", fill = "steelblue") +
   coord_flip() +  # Flip coordinates for better readability
   labs(
-    title = "Bigram Frequency in Study Conditions",
+    title = "Bigram Frequency of Conditions Studied in AI Clinical Trials",
     x = "Bigram",
     y = "Frequency"
   ) +
