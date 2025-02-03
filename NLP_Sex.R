@@ -28,9 +28,14 @@ lf$Completion_Date <- as.IDate(lf$Completion_Date)
 
 # Get Unque Values from Age 
 print(unique(lf$Age))
+print(unique(lf$Sex))
 print(unique(lf$Study_Status))
+
 
 # Define the statuses to exclude
 excluded_statuses <- c("TERMINATED" , "WITHDRAWN", "UNKNOWN", "SUSPENDED")
 # Subset the data to only include studies that are active 
 mf <- lf[!(Study_Status %in% excluded_statuses)]
+
+print(unique(mf$Sex))
+
