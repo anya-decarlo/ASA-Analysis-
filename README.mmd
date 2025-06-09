@@ -1,0 +1,79 @@
+# ASA-Analysis
+
+**Team InnoSync** AI & Temporal Clinical Trials Analysis
+
+## Overview
+This repository provides analysis of AI usage in clinical trials, including temporal trends, NLP-based study attribute extraction, and statistical summaries.
+
+## Prerequisites
+- R (>= 4.0)
+- Python (>= 3.7)
+- R packages: data.table, ggplot2, tidyverse, scales, gridExtra, tidytext, dplyr
+- Python packages: numpy, pandas, matplotlib, seaborn, statsmodels
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/anya-decarlo/ASA-Analysis-.git
+   cd ASA-Analysis-
+   ```
+2. Install R dependencies:
+   ```bash
+   Rscript -e "install.packages(c('data.table','ggplot2','tidyverse','scales','gridExtra','tidytext','dplyr'))"
+   ```
+3. Install Python dependencies:
+   ```bash
+   pip install numpy pandas matplotlib seaborn statsmodels
+   ```
+
+## Data Preparation
+Place the raw `ctg_studies.csv` in the root directory. Run:
+```bash
+Rscript clean_data.R
+Rscript preprocess_Data.R
+```
+to generate cleaned datasets.
+
+## Scripts & Workflow
+### R Scripts
+- `clean_data.R`: initial data cleaning.
+- `preprocess_Data.R`: preprocessing and merging.
+- `analyze_ai_temporal.R`: temporal AI trial analysis.
+- Other AI analyses: `analyze_ai_network.R`, `analyze_ai_trials.R`, etc.
+- NLP scripts (`NLP_*.R`): extract study attributes (age, conditions, interventions, outcomes).
+
+### Python Scripts
+- `analyze_studies.py`: simulate insurance and cost analysis for patient visits.
+
+## Usage Examples
+- Run temporal analysis:
+  ```bash
+  Rscript analyze_ai_temporal.R
+  ```
+- Run Python analysis:
+  ```bash
+  python analyze_studies.py
+  ```
+
+## Outputs
+- `results/`: summary tables and plots.
+- `results/ai_temporal/`: publication-ready figures and Markdown report.
+- `visualizations/`: supplementary plots in `visualizations/` folder.
+
+## Directory Structure
+```
+ASA-Analysis-/
+├── clean_data.R
+├── preprocess_Data.R
+├── analyze_ai_temporal.R
+├── analyze_ai_network.R
+├── analyze_ai_trials.R
+├── NLP_*.R
+├── analyze_studies.py
+├── results/
+│   └── ai_temporal/
+└── visualizations/
+```
+
+## License & Contact
+MIT License. For questions, contact anya.decarlo@company.com.
